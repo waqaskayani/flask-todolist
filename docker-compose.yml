@@ -1,8 +1,9 @@
 version: '2'
+
 services:
   todolist:
     container_name: todolist
-    image: docker.io/waqaskayani/test-docker:task
+    image: docker.io/waqaskayani/todolist:app
     # restart: always
     env_file: .env
     command: gunicorn todolist:app -w 2 -b :8000
@@ -14,7 +15,7 @@ services:
   migration:
     container_name: migration
     build: .
-    image: docker.io/waqaskayani/test-docker:task
+    image: docker.io/waqaskayani/todolist:app
     env_file: .env
     command: flask db upgrade
     depends_on:
