@@ -9,15 +9,21 @@ phases:
         commands:
             - aws --version
             - echo Executing Pre Build Phase
+            - echo Logging in..
+            - docker login -u=waqaskayani -p=123456789
+
 
     build:
         commands:
             - echo Executing Build Phase
             - echo Build started on `date`
+            - "docker build -t waqaskayani/test-docker:task"
+            - "docker tag waqaskayani/test-docker:task waqaskayani/test-docker:task"
 
     post_build:
         commands:
             - echo Executing Post Build Phase
+            - "docker push waqaskayani/test-docker:task"
             - echo Build completed on `date`
 
 artifacts:
