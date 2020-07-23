@@ -11,3 +11,4 @@ ADD . /code
 WORKDIR /code
 RUN python3 -m pip install gunicorn
 RUN python3 -m pip install -r requirements.txt
+RUN python3 -m pip install -r test-requirements.txt
