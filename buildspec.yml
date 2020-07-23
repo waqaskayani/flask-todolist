@@ -4,6 +4,8 @@ phases:
     install:
         commands:
             - echo Executing Install Phase
+            - python -m pip install -r requirements.txt
+            - python -m pip install -r test-requirements.txt
             
     pre_build:
         commands:
