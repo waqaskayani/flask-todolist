@@ -16,15 +16,14 @@ phases:
         commands:
             - echo Executing Build Phase
             - echo Build started on `date`
-            - ls
             - "docker build --tag waqaskayani/todolist:app ."
             - "docker tag waqaskayani/todolist:app waqaskayani/todolist:app"
 
     post_build:
         commands:
             - echo Executing Post Build Phase
+            - "docker push waqaskayani/todolist:app"
             - echo Build completed on `date`
-            #- "docker push waqaskayani/todolist:app"
 
 artifacts:
     files:
