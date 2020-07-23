@@ -18,7 +18,7 @@ phases:
             - echo Build started on `date`
             - "docker build --tag waqaskayani/todolist:app ."
             - "docker tag waqaskayani/todolist:app waqaskayani/todolist:app"
-            - docker-compose pull && docker-compose up
+            - docker-compose pull && docker-compose up -d
 
     post_build:
         commands:
