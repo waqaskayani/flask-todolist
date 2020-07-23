@@ -17,7 +17,7 @@ phases:
             - echo Executing Build Phase
             - echo Build started on `date`
             - ls
-            - "docker build --tag waqaskayani/todolist:app"
+            - "docker build --tag waqaskayani/todolist:app ."
             - "docker tag waqaskayani/todolist:app waqaskayani/todolist:app"
 
     post_build:
