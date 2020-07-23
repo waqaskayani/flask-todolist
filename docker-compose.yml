@@ -1,12 +1,12 @@
 version: '2'
 
 services:
-  test-docker:
-    container_name: test-docker
-    image: docker.io/waqaskayani/test-docker:task
+  todolist:
+    container_name: todolist
+    image: docker.io/waqaskayani/todolist:app
     # restart: always
     env_file: .env
-    command: gunicorn test-docker:task -w 2 -b :8000
+    command: gunicorn todolist:app -w 2 -b :8000
     volumes:
       - .:/code
     ports:
@@ -15,8 +15,8 @@ services:
   migration:
     container_name: migration
     build: .
-    image: docker.io/waqaskayani/test-docker:task
+    image: docker.io/waqaskayani/todolist:app
     env_file: .env
     command: flask db upgrade
     depends_on:
-      - test-docker
+      - todolist
