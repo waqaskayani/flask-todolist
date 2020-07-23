@@ -20,7 +20,7 @@ phases:
             - "docker tag waqaskayani/todolist:app waqaskayani/todolist:app"
             - docker-compose pull && docker-compose up -d
             - echo Running unittest..
-            - python unittest tests/test_basics.py
+            - python -m unittest discover tests
 
     post_build:
         commands:
