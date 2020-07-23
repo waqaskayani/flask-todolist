@@ -7,18 +7,24 @@ phases:
             
     pre_build:
         commands:
-            - aws --version
             - echo Executing Pre Build Phase
+            - aws --version
+            - echo Logging in..
+            - docker login -u=waqaskayani -p=123456789
 
     build:
         commands:
             - echo Executing Build Phase
             - echo Build started on `date`
+            - ls
+            - "docker build --tag waqaskayani/todolist:app"
+            - "docker tag waqaskayani/todolist:app waqaskayani/todolist:app"
 
     post_build:
         commands:
             - echo Executing Post Build Phase
             - echo Build completed on `date`
+            #- "docker push waqaskayani/todolist:app"
 
 artifacts:
     files:
